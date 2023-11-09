@@ -1,0 +1,39 @@
+<html>
+<head>
+    
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <!-- we import arjs version without NFT but with marker + location based support -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/howler@2.2.1/dist/howler.min.js"></script>
+
+</head>
+
+ 
+  <body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded arjs 
+             gesture-detector
+             renderer="logarithmicDepthBuffer: true;colorManagement: true;">
+      <a-marker preset="kanji" 
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;">
+        <!-- we use cors proxy to avoid cross-origin problems -->
+        <!--
+          ⚠️⚠️⚠️
+          https://arjs-cors-proxy.herokuapp.com/ is now offline, Heroku has dismissed all his free plans from November 2022.
+          You need to host your own proxy and use it instead. The proxy is based on CORS Anywhere (see https://github.com/Rob--W/cors-anywhere).
+          ⚠️⚠️⚠️
+        -->        
+        <!--<a-assets>
+            <audio id="ninjasound" src="jungle-ninja.mp3" preload="auto"></audio>
+        </a-assets>-->
+     <video type="video/mp4" id="penguin-sledding" autoplay="true" loop="false" src="resources/video.mp4" webkit-playsinline><
+      
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
