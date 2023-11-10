@@ -30,8 +30,15 @@
         <!--<a-assets>
             <audio id="ninjasound" src="jungle-ninja.mp3" preload="auto"></audio>
         </a-assets>-->
-        <video type="video/mp4" id="tour" autoplay="true" loop="false" src="https://cdn.glitch.me/d60b3c0e-7d53-49da-8104-e28cfda9647d/OnePlus%20Factory%20tour%202020%20_%20How%20smartphones%20are%20made.mp4?v=1699543307595" webkit-playsinline></video>
-        <a-video  position="0 0.2 0" src="#tour" rotation="90 180 0"></a-video>
+         <a-entity
+          id="model"
+          position="0 0.2 0"
+          scale="7 7 7"
+          gltf-model="https://cdn.glitch.global/d60b3c0e-7d53-49da-8104-e28cfda9647d/one_plus_7_pro.glb?v=1699610263082"
+          class="clickable"
+          animation-mixer="loop: repeat"
+          gesture-handler
+        ></a-entity>
       
       </a-marker>
       <a-entity camera></a-entity>
