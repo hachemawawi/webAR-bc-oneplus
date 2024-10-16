@@ -1,47 +1,28 @@
 <html>
-<head>
-    
-  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-  <!-- we import arjs version without NFT but with marker + location based support -->
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-  <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
-  <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/howler@2.2.1/dist/howler.min.js"></script>
-  <script src="script.js"></script>
-</head>
-
- 
-  <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded arjs 
-             gesture-detector
-             renderer="logarithmicDepthBuffer: true;colorManagement: true;">
-      <a-marker preset="kanji" 
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;">
-        <!-- we use cors proxy to avoid cross-origin problems -->
-        <!--
-          ⚠️⚠️⚠️
-          https://arjs-cors-proxy.herokuapp.com/ is now offline, Heroku has dismissed all his free plans from November 2022.
-          You need to host your own proxy and use it instead. The proxy is based on CORS Anywhere (see https://github.com/Rob--W/cors-anywhere).
-          ⚠️⚠️⚠️
-        -->        
-        <!--<a-assets>
-            <audio id="ninjasound" src="jungle-ninja.mp3" preload="auto"></audio>
-        </a-assets>-->
-         <a-entity
-          id="model"
-          position="0 0.2 0"
-          scale="7 7 7"
-          gltf-model="https://cdn.glitch.global/d60b3c0e-7d53-49da-8104-e28cfda9647d/one_plus_7_pro.glb?v=1699610263082"
-          class="clickable"
-          animation-mixer="loop: repeat"
-          gesture-handler
-        ></a-entity>
-      
-      </a-marker>
-      <a-entity camera></a-entity>
-    </a-scene>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script data-consolejs-channel="27e857d2-4880-9f96-17fa-746a1661d528" src="https://remotejs.com/agent/agent.js"></script>    
+    <script type="importmap">
+        {
+          "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/",
+        "mindar-image-three":"https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-three.prod.js"
+          }
+        }
+        </script>
+    <script src="./main.js" type="module"></script>
+    <style>
+      html, body {position: relative; margin: 0; width: 100%; height: 100%; overflow: hidden}
+      #ar-div {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="ar-div">
+      <div id="player"/>
+    </div>
   </body>
 </html>
