@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {MindARThree} from 'mindar-image-three';
-import {loadGLTF} from "loader.js";
-import {mockWithImage} from "camera-mock.js";
+import {loadGLTF} from "./loader.js";
+import {mockWithImage} from "./camera-mock.js";
 import { CSS3DRenderer,CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
 
 const createYoutube = () => {
