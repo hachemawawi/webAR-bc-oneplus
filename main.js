@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     avatarAnchor.group.add(gltf.scene);
 
     // Audio Setup
-    const audioClip = await loadAudio("./assets/ElevenLabs_Michael C. Vincent_OnePlus.mp3");
+    const audioClip = await loadAudio("https://cdn.glitch.global/d60b3c0e-7d53-49da-8104-e28cfda9647d/ElevenLabs_Michael%20C.%20Vincent_OnePlus.mp3?v=1729582504718");
     const listener = new THREE.AudioListener();
     const audio = new THREE.PositionalAudio(listener);
     camera.add(listener);
@@ -294,9 +294,13 @@ document.addEventListener('DOMContentLoaded', () => {
         audio.setVolume(volume);
       }
 
-      renderer.render(scene, camera);
+      cssRenderer.renderOrder= 1;
       cssRenderer.render(cssScene, camera);
-          
+
+      renderer.renderOrder= 2;
+      renderer.render(scene, camera);
+
+
     });
 
     // Add stop method
